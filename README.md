@@ -2,7 +2,7 @@
 # Natural Language Processing (NLP) Roadmap
 
 ## 1. Foundations of NLP
-- **Text Preprocessing**
+- **Text Preprocessing** Done
   - Tokenization: Breaking text into words or subwords.
   - Lemmatization vs. Stemming: Reducing words to their base forms.
   - Stop words removal: Filtering out common words (like "the", "is").
@@ -11,7 +11,7 @@
 - **Text Representation**
   - Bag of Words (BoW)
   - Term Frequency-Inverse Document Frequency (TF-IDF)
-  - Word Embeddings: Word2Vec, GloVe, FastText
+  - Word Embeddings: Word2Vec, GloVe, FastText Remaining
 
 ## 2. Understanding Core NLP Tasks
 - **Text Classification**
