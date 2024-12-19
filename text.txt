@@ -2,115 +2,147 @@ Machine-learning technology powers many aspects of modern
 society: from web searches to content filtering on social net
 works to recommendations on e-commerce websites, and 
 it is increasingly present in consumer products such as cameras and 
-smartphones. Machine-learning systems are used to identify objects 
+smartphones.
+Machine-learning systems are used to identify objects
 in images, transcribe speech into text, match news items, posts or 
-products with users’ interests, and select relevant results of search. 
+products with users’ interests, and select relevant results of search.
 Increasingly, these applications make use of a class of techniques called 
-deep learning. 
-Conventional machine-learning techniques were limited in their 
-ability to process natural data in their raw form. For decades, con
+deep learning.
+Conventional machine-learning techniques were limited in their
+ability to process natural data in their raw form.
+For decades, con
 structing a pattern-recognition or machine-learning system required 
 careful engineering and considerable domain expertise to design a fea
 ture extractor that transformed the raw data (such as the pixel values 
-of an image) into a suitable internal representation or feature vector 
+of an image) into a suitable internal representation or feature vector
 from which the learning subsystem, often a classifier, could detect or 
-classify patterns in the input. 
+classify patterns in the input.
 Representation learning is a set of methods that allows a machine to 
 be fed with raw data and to automatically discover the representations 
-needed for detection or classification. Deep-learning methods are 
+needed for detection or classification.
+Deep-learning methods are
 representation-learning methods with multiple levels of representa
 tion, obtained by composing simple but non-linear modules that each 
 transform the representation at one level (starting with the raw input) 
-into a representation at a higher, slightly more abstract level. With the 
-composition of enough such transformations, very complex functions 
-can be learned. For classification tasks, higher layers of representation 
+into a representation at a higher, slightly more abstract level.
+With the 
+composition of enough such transformations, very complex functions
+can be learned.
+For classification tasks, higher layers of representation 
 amplify aspects of the input that are important for discrimination and 
-suppress irrelevant variations. An image, for example, comes in the 
+suppress irrelevant variations.
+An image, for example, comes in the 
 form of an array of pixel values, and the learned features in the first 
-layer of representation typically represent the presence or absence of 
-edges at particular orientations and locations in the image. The second 
+layer of representation typically represent the presence or absence of
+edges at particular orientations and locations in the image.
+The second 
 layer typically detects motifs by spotting particular arrangements of 
-edges, regardless of small variations in the edge positions. The third 
+edges, regardless of small variations in the edge positions.
+The third 
 layer may assemble motifs into larger combinations that correspond 
-to parts of familiar objects, and subsequent layers would detect objects 
-as combinations of these parts. The key aspect of deep learning is that 
+to parts of familiar objects, and subsequent layers would detect objects
+as combinations of these parts.
+The key aspect of deep learning is that 
 these layers of features are not designed by human engineers: they 
-are learned from data using a general-purpose learning procedure. 
+are learned from data using a general-purpose learning procedure.
 Deep learning is making major advances in solving problems that 
 have resisted the best attempts of the artificial intelligence commu
-nity for many years. It has turned out to be very good at discovering 
+nity for many years.
+It has turned out to be very good at discovering 
 intricate structures in high-dimensional data and is therefore applica
-ble to many domains of science, business and government. In addition 
+ble to many domains of science, business and government.
+In addition 
 to beating records in image recognition1–4 and speech recognition5–7, it 
 has beaten other machine-learning techniques at predicting the activ
 ity of potential drug molecules8, analysing particle accelerator data9,10, 
 reconstructing brain circuits11, and predicting the effects of mutations 
-in non-coding DNA on gene expression and disease12,13. Perhaps more 
+in non-coding DNA on gene expression and disease12,13.
+Perhaps more 
 surprisingly, deep learning has produced extremely promising results 
-for various tasks in natural language understanding14, particularly 
+for various tasks in natural language understanding14, particularly
 topic classification, sentiment analysis, question answering15 and lan
-guage translation16,17. 
+guage translation16,17.
 We think that deep learning will have many more successes in the 
 near future because it requires very little engineering by hand, so it 
 can easily take advantage of increases in the amount of available com
-putation and data. New learning algorithms and architectures that are 
+putation and data.
+New learning algorithms and architectures that are 
 currently being developed for deep neural networks will only acceler
-ate this progress. 
+ate this progress.
 Supervised learning 
-The most common form of machine learning, deep or not, is super
-vised learning. Imagine that we want to build a system that can classify 
-images as containing, say, a house, a car, a person or a pet. We first 
+The most common form of machine learning, deep or not, is supervised learning.
+Imagine that we want to build a system that can classify 
+images as containing, say, a house, a car, a person or a pet.
+We first 
 collect a large data set of images of houses, cars, people and pets, each 
-labelled with its category. During training, the machine is shown an 
-image and produces an output in the form of a vector of scores, one 
-for each category. We want the desired category to have the highest 
-score of all categories, but this is unlikely to happen before training. 
+labelled with its category.
+During training, the machine is shown an 
+image and produces an output in the form of a vector of scores, one
+for each category.
+We want the desired category to have the highest 
+score of all categories, but this is unlikely to happen before training.
 We compute an objective function that measures the error (or dis
-tance) between the output scores and the desired pattern of scores. The 
-machine then modifies its internal adjustable parameters to reduce 
-this error. These adjustable parameters, often called weights, are real 
+tance) between the output scores and the desired pattern of scores.
+The 
+machine then modifies its internal adjustable parameters to reduce
+this error.
+These adjustable parameters, often called weights, are real 
 numbers that can be seen as ‘knobs’ that define the input–output func
-tion of the machine. In a typical deep-learning system, there may be 
+tion of the machine.
+In a typical deep-learning system, there may be 
 hundreds of millions of these adjustable weights, and hundreds of 
-millions of labelled examples with which to train the machine. 
+millions of labelled examples with which to train the machine.
 To properly adjust the weight vector, the learning algorithm com
 putes a gradient vector that, for each weight, indicates by what amount 
 the error would increase or decrease if the weight were increased by a 
-tiny amount. The weight vector is then adjusted in the opposite direc
-tion to the gradient vector. The objective function, averaged over all the training examples, can 
+tiny amount.
+The weight vector is then adjusted in the opposite direc
+tion to the gradient vector.
+The objective function, averaged over all the training examples, can
 be seen as a kind of hilly landscape in the high-dimensional space of 
 Many of the current practical applications of machine learning use 
-weight values. The negative gradient vector indicates the direction 
+weight values.
+The negative gradient vector indicates the direction 
 of steepest descent in this landscape, taking it closer to a minimum, 
-where the output error is low on average. 
+where the output error is low on average.
 In practice, most practitioners use a procedure called stochastic 
-gradient descent (SGD). This consists of showing the input vector 
+gradient descent (SGD).
+This consists of showing the input vector 
 for a few examples, computing the outputs and the errors, computing 
 the average gradient for those examples, and adjusting the weights 
-accordingly. The process is repeated for many small sets of examples 
+accordingly.
+The process is repeated for many small sets of examples
 from the training set until the average of the objective function stops 
-decreasing. It is called stochastic because each small set of examples 
-gives a noisy estimate of the average gradient over all examples. This 
+decreasing.
+It is called stochastic because each small set of examples 
+gives a noisy estimate of the average gradient over all examples.
+This 
 simple procedure usually finds a good set of weights surprisingly 
 quickly when compared with far more elaborate optimization tech
-niques18. After training, the performance of the system is measured 
-on a different set of examples called a test set. This serves to test the 
+niques18.
+After training, the performance of the system is measured 
+on a different set of examples called a test set.
+This serves to test the 
 generalization ability of the machine — its ability to produce sensible 
-answers on new inputs that it has never seen during training. 
-linear classifiers on top of hand-engineered features. A two-class linear 
-classifier computes a weighted sum of the feature vector components. 
+answers on new inputs that it has never seen during training.
+linear classifiers on top of hand-engineered features.
+A two-class linear
+classifier computes a weighted sum of the feature vector components.
 If the weighted sum is above a threshold, the input is classified as 
-belonging to a particular category. 
+belonging to a particular category.
 Since the 1960s we have known that linear classifiers can only carve 
 their input space into very simple regions, namely half-spaces sepa
-rated by a hyperplane19. But problems such as image and speech recog
+rated by a hyperplane19.
+But problems such as image and speech recog
 nition require the input–output function to be insensitive to irrelevant 
 variations of the input, such as variations in position, orientation or 
 illumination of an object, or variations in the pitch or accent of speech, 
-while being very sensitive to particular minute variations (for example, 
+while being very sensitive to particular minute variations (for example,
 the difference between a white wolf and a breed of wolf-like white 
-dog called a Samoyed). At the pixel level, images of two Samoyeds in 
+dog called a Samoyed).
+At the pixel level, images of two Samoyeds in 
 different poses and in different environments may be very different 
 from each other, whereas two images of a Samoyed and a wolf in the 
-same position and on similar backgrounds may be very similar to each 
+same position and on similar backgrounds may be very similar to each
 other.
+
