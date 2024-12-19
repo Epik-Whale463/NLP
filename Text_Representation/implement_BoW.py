@@ -66,5 +66,5 @@ print(bow_vector)
 sorted_tokens = sorted(freq_dist.items(), key=lambda x: x[1], reverse=True)
 
 # Display the most frequent tokens
-for token, freq in sorted_tokens[:5]:
+for token, freq in sorted_tokens[:10]:
     print(f"Token: {token}, Frequency: {freq}")
